@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.MuiPickersDay-root:not(.Mui-disabled) {
+    color: blue;
+    background-color: rgb(234, 232, 232);
+}
+.MuiButtonBase-root.MuiButton-root {
+    background-color: rgb(237, 230, 230);
+    color: blue;
+}
+.MuiButtonBase-root.MuiButton-root:hover {
+    background-color: rgb(208, 201, 201);
+}
+
+.leaflet-routing-container {
+ display: none;   
+}
+
+.leaflet-right {
+    margin-right: 10px;   
+    pointer-events: all
+}
+
+.leaflet-top {
+    margin-top: 3rem;
+    pointer-events: all;
+}
+
+.leaflet-bottom {
+    margin-bottom: 0.5rem;
+    pointer-events: all;
+}
+
+.leaflet-top.nvbar {
+    margin-top: 0rem;
+    pointer-events: all;
+}
+
+
+
+
