@@ -5,6 +5,7 @@ import { startTracking, updateCoordinates, stopTracking } from "../../store/slic
 import { useMap } from 'react-leaflet';
 import { updateMapCenter } from "../../store/slices/mapSlice";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 function useTrackButton () {
     
     const { tracking,saveBtn, userId, status, movementCoordinates } = useAppselectors();    
@@ -13,6 +14,7 @@ function useTrackButton () {
     const navigate = useNavigate();
 
     const endtime = new Date().toLocaleTimeString();
+    const [locationError, setLocationError] = useState(false);
     
     function getCurrentDate() {
         const currentDate = new Date();
@@ -20,14 +22,19 @@ function useTrackButton () {
     }
     
     function onLocationFound(e) {
-            const { lat, lng } = e.latlng;
 
-            dispatch(updateCoordinates({ lat, lng }));
-            dispatch(updateMapCenter({lat,lng}));        
+        if(locationError) return;
+
+        const { lat, lng } = e.latlng;
+
+        dispatch(updateCoordinates({ lat, lng }));
+        dispatch(updateMapCenter({lat,lng}));        
     }
 
     function onLocationError() {
         alert("Error while retrieving Location. Please enable location services and try again.");
+
+        setLocationError(true);
     }
     
     const map = useMap();
@@ -45,6 +52,8 @@ function useTrackButton () {
             map.stopLocate(); 
 
         } else if (status === true) {
+
+            setLocationError(false);
 
             dispatch(startTracking({
                 userId,
