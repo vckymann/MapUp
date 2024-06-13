@@ -8,6 +8,7 @@ import AuthLayout from "./components/AuthLayout.jsx";
 import Home  from "./pages/Home/index.jsx";
 import PastTrips from "./pages/PastTrips/index.jsx";
 import Auth from "./pages/Auth/index.jsx";
+import 'leaflet/dist/leaflet.css'
 import './styles/index.css'
 import 'leaflet-routing-machine'
 

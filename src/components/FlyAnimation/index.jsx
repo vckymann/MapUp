@@ -15,6 +15,6 @@ function FlyAnimation({ coords }) {
 
 export default FlyAnimation;
 
-FlyAnimation.proptypes = {
+FlyAnimation.propTypes = {
   coords : PropTypes.array,
 }

@@ -5,13 +5,9 @@ import { startTracking, updateCoordinates, stopTracking } from "../../store/slic
 import { useMap } from 'react-leaflet';
 import { updateMapCenter } from "../../store/slices/mapSlice";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 function useTrackButton () {
     
-    const { tracking,saveBtn, userId, status, movementCoordinates } = useAppselectors();
-
-    const [lastRecordedTime, setLastRecordedTime] = useState(0);
-    const recordInterval = 5000;
+    const { tracking,saveBtn, userId, status, movementCoordinates } = useAppselectors();    
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -24,15 +20,10 @@ function useTrackButton () {
     }
     
     function onLocationFound(e) {
-        const { lat, lng } = e.latlng;
-        const currentTime = Date.now();
+            const { lat, lng } = e.latlng;
 
-        if (currentTime - lastRecordedTime > recordInterval) {
             dispatch(updateCoordinates({ lat, lng }));
-            dispatch(updateMapCenter({lat,lng}));
-
-            setLastRecordedTime(currentTime);
-        }
+            dispatch(updateMapCenter({lat,lng}));        
     }
 
     function onLocationError() {
