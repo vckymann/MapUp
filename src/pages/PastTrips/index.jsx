@@ -17,7 +17,7 @@ function PastTrips() {
         <TileLayer attribution='Google Maps' url='https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}'/>
         {trips.map((trip, index) => (
             <div key={trip.id}>
-            <Polyline weight={10} positions={trip.coordinates.map((coord) => [coord.lat, coord.lng])} color={generateColor(index)} />        
+            <Polyline weight={5} positions={trip.coordinates.map((coord) => [coord.lat, coord.lng])} color={generateColor(index)} />        
             <Marker position={trip.coordinates[0]}>
                 <Popup>Distance Traveled: {trip.distance_travelled} Km <br />Started At {trip.start_time}</Popup>
             </Marker>

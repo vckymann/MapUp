@@ -20,7 +20,7 @@ function Home() {
         <MapContainer id="map" className="w-full min-h-screen" center={[mapCenter.lat, mapCenter.lng]} zoom={mapZoomLevel} minZoom={4}>
             <TileLayer attribution='Google Maps' url='https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}'/>
             { movementCoordinates?.length > 1 && (
-                <Polyline weight={10} positions={movementCoordinates.map(coord => [coord.lat, coord.lng])} color="blue" />
+                <Polyline weight={5} positions={movementCoordinates.map(coord => [coord.lat, coord.lng])} color="blue" />
             )}
 
             <FlyAnimation coords={[mapCenter.lat, mapCenter.lng]} />

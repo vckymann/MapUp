@@ -12,6 +12,7 @@ const databaseService = {
     },
 
     async storeTrip(tripData, userId) {
+        console.log(tripData);
         const { error } = await supabase.from("trips").insert({
             trip_date: tripData.tripdate,
             start_time: tripData.startTime,
@@ -20,7 +21,7 @@ const databaseService = {
             distance_travelled: tripData.distanceTravelled,
             user_id: userId
         });
-        if (error) throw new Error(error.message);
+        if (error) throw error.message;
     },
 
     async getUserTrips(userId) {

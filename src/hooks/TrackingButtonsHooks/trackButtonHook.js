@@ -8,12 +8,12 @@ import { useNavigate } from "react-router-dom";
 
 function useTrackButton () {
     
-    const { tracking,saveBtn, userId, status, movementCoordinates } = useAppselectors();
+    const { tracking,saveBtn, status, movementCoordinates } = useAppselectors();
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const endtime = new Date().toLocaleTimeString();
+    const endTime = new Date().toLocaleTimeString();
     
     function getCurrentDate() {
         const currentDate = new Date();
@@ -36,18 +36,17 @@ function useTrackButton () {
         if (tracking) {
 
             const { lat:firstLat, lng:firstLng } = movementCoordinates[0];
-            const { lat:lastLat, lng:lastLng } = movementCoordinates[movementCoordinates.length - 1];
+            const { lat:lastLat, lng:lastLng } = movementCoordinates[movementCoordinates.length - 1]
 
-            const distancetravelled = calculateDistance(firstLat,firstLng,lastLat,lastLng);
+            const distanceTravelled = calculateDistance(firstLat,firstLng,lastLat,lastLng);
 
-            dispatch(stopTracking({endtime, distancetravelled}));
+            dispatch(stopTracking({endTime, distanceTravelled}));
 
             map.stopLocate(); 
 
         } else if (status === true) {
 
             dispatch(startTracking({
-                userId,
                 date:getCurrentDate(),
                 startTime: new Date().toLocaleTimeString()
             }))

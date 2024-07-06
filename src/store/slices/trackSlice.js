@@ -18,6 +18,7 @@ const trackSlice = createSlice({
     reducers: {
         startTracking: (state, action) => {
             state.tracking = true
+            console.log(action.payload);
             state.currentTrip = {
                 ...state.currentTrip,
                 tripdate:action.payload.date,
