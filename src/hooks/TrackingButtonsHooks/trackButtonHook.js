@@ -39,7 +39,8 @@ function useTrackButton () {
             const { lat:firstLat, lng:firstLng } = movementCoordinates[0];
             const { lat:lastLat, lng:lastLng } = movementCoordinates[movementCoordinates.length - 1]
 
-            const distanceTravelled = calculateDistance(firstLat,firstLng,lastLat,lastLng);
+            const tripDistance = calculateDistance(firstLat,firstLng,lastLat,lastLng);
+            const distanceTravelled = (tripDistance).toFixed(2);
 
             dispatch(stopTracking({endTime, distanceTravelled}));
 

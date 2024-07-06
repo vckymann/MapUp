@@ -29,7 +29,7 @@ function PastTrips() {
         <button onClick={() => {
             navigate("/")
         }} className="px-6 py-2 rounded-md text-[14px] bg-[#3498db] text-white absolute top-2 left-2 z-[999]">Back</button>
-        <h3 className="absolute top-3 right-2 z-[999] text-xl font-bold">Total Distance Traveled: <span className="text-[#3498db]">{totalDistance}</span> Km</h3>
+        <h3 className="absolute top-3 left-60 z-[999] text-xl font-bold text-nowrap">Total Distance <br /> Travelled: <span className="text-[#3498db]">{totalDistance}</span> Km</h3>
     </MapContainer>     
     </>
   )
