@@ -1,7 +1,7 @@
-# Trip Tracker
+# MapUp
 
 ## Description
-Trip Tracker is a web application that allows users to search for places, establish the quickest routes between two points, and calculate the distance and approximate travel time.
+MapUp is a web application that allows users to search for places, establish the quickest routes between two points, and calculate the distance and approximate travel time.
 The main feature of this app is the ability for users to track and store their trips.
 Users can view their past trips to see where they traveled on a specific day.
 

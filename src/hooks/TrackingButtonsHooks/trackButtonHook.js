@@ -5,7 +5,6 @@ import { startTracking, updateCoordinates, stopTracking } from "../../store/slic
 import { useMap } from 'react-leaflet';
 import { updateMapCenter } from "../../store/slices/mapSlice";
 import { useNavigate } from "react-router-dom";
-
 function useTrackButton () {
     
     const { tracking,saveBtn, status, movementCoordinates } = useAppselectors();
@@ -21,9 +20,11 @@ function useTrackButton () {
     }
     
     function onLocationFound(e) {
+
         const { lat, lng } = e.latlng;
+
         dispatch(updateCoordinates({ lat, lng }));
-        dispatch(updateMapCenter({lat,lng}));
+        dispatch(updateMapCenter({lat,lng}));        
     }
 
     function onLocationError() {
